@@ -12,10 +12,10 @@
         <nav class="navbar" aria-label="Main Navigation">
             <h1 class="logo">DevWork</h1>
             <ul class="nav-links">
-                <li><a href="#home" aria-label="Home">Home</a></li>
-                <li><a href="#projects" aria-label="Projects">Projects</a></li>
-                <li><a href="#profile" aria-label="Profile">Profile</a></li>
-                <li><a href="#contact" aria-label="Contact">Contact</a></li>
+                <li><a href="#home" aria-label="Go to Home section">Home</a></li>
+                <li><a href="#projects" aria-label="Go to Projects section">Projects</a></li>
+                <li><a href="#profile" aria-label="Go to Profile section">Profile</a></li>
+                <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -23,69 +23,101 @@
     <!-- Main Content Container -->
     <div class="container">
         <!-- Sidebar for Profile -->
-        <aside class="profile-sidebar" aria-label="User Profile Sidebar">
-            <h2>Your Profile</h2>
-            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
-            <p class="username">Username: dev_user</p>
-            <p class="role">Role: Developer</p>
-            <button class="logout-button" aria-label="Logout from profile">Logout</button>
+        <aside class="profile-sidebar" aria-labelledby="profile-heading">
+            <h2 id="profile-heading">Your Profile</h2>
+            <img 
+                src="https://via.placeholder.com/150" 
+                alt="Profile picture placeholder" 
+                class="profile-picture">
+            <p class="username">Username: <span aria-label="Username">dev_user</span></p>
+            <p class="role">Role: <span aria-label="Role">Developer</span></p>
+            <button class="logout-button" aria-label="Logout from your profile">Logout</button>
         </aside>
 
         <!-- Project Listings -->
-        <main class="project-listings" aria-label="Project Listings">
-            <h2>Projects</h2>
+        <main class="project-listings" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
             
             <section id="projects">
                 <div class="project-card">
                     <h3>Project Title 1</h3>
                     <p>A brief description of the project goes here. This can include technologies used, goals, or any other relevant details.</p>
-                    <button class="view-button" aria-label="View Project Title 1">View Project</button>
+                    <button class="view-button" aria-label="View details of Project Title 1">View Project</button>
                 </div>
 
                 <div class="project-card">
                     <h3>Project Title 2</h3>
                     <p>A brief description of the project goes here. This can include technologies used, goals, or any other relevant details.</p>
-                    <button class="view-button" aria-label="View Project Title 2">View Project</button>
+                    <button class="view-button" aria-label="View details of Project Title 2">View Project</button>
                 </div>
 
                 <div class="project-card">
                     <h3>Project Title 3</h3>
                     <p>A brief description of the project goes here. This can include technologies used, goals, or any other relevant details.</p>
-                    <button class="view-button" aria-label="View Project Title 3">View Project</button>
+                    <button class="view-button" aria-label="View details of Project Title 3">View Project</button>
                 </div>
             </section>
 
             <!-- User Form Section -->
-            <section id="user-form" aria-label="User Information Form">
-                <h2>Enter Your Information</h2>
+            <section id="user-form" aria-labelledby="form-heading">
+                <h2 id="form-heading">Enter Your Information</h2>
                 <form action="#" method="post">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <div>
+                        <label for="name">Name:</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            aria-describedby="name-desc" 
+                            placeholder="Enter your full name" 
+                            required>
+                        <p id="name-desc">Please enter your full name.</p>
+                    </div>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            aria-describedby="email-desc" 
+                            placeholder="Enter your email address" 
+                            required>
+                        <p id="email-desc">We'll use your email for contact purposes only.</p>
+                    </div>
 
-                    <label for="dob">Date of Birth:</label>
-                    <input type="date" id="dob" name="dob" required>
+                    <div>
+                        <label for="dob">Date of Birth:</label>
+                        <input 
+                            type="date" 
+                            id="dob" 
+                            name="dob" 
+                            aria-describedby="dob-desc" 
+                            required>
+                        <p id="dob-desc">Select your date of birth.</p>
+                    </div>
 
                     <fieldset>
                         <legend>Gender:</legend>
-                        <label for="male">Male</label>
-                        <input type="radio" id="male" name="gender" value="male" required>
-
-                        <label for="female">Female</label>
-                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="male">
+                            <input type="radio" id="male" name="gender" value="male" required> Male
+                        </label>
+                        <label for="female">
+                            <input type="radio" id="female" name="gender" value="female" required> Female
+                        </label>
                     </fieldset>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit" aria-label="Submit your information">Submit</button>
                 </form>
             </section>
         </main>
     </div>
 
     <!-- Footer -->
-    <footer class="footer" aria-label="Footer">
+    <footer class="footer" aria-labelledby="footer-heading">
+        <h2 id="footer-heading" class="visually-hidden">Footer Section</h2>
         <p>&copy; 2024 DevWork. All rights reserved.</p>
     </footer>
 </body>
 </html>
+
