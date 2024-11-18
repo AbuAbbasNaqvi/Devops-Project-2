@@ -7,24 +7,31 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9; /* Slightly lighter background for contrast */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 /* Navbar */
 .navbar {
     background-color: #333;
     color: #fff;
-    padding: 15px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar .logo {
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .navbar .nav-links {
@@ -32,46 +39,57 @@ body {
 }
 
 .navbar .nav-links li {
-    display: inline;
+    display: inline-block;
     margin-left: 20px;
 }
 
 .navbar .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 .navbar .nav-links a:hover {
-    color: #4CAF50;
+    background-color: #4CAF50;
+    color: #fff;
 }
 
 /* Container for Sidebar and Main Content */
 .container {
     display: flex;
+    flex-wrap: wrap; /* Responsive for smaller screens */
     margin: 20px;
 }
 
 /* Sidebar */
 .profile-sidebar {
-    width: 25%;
+    flex: 1 1 100%; /* Full width on smaller screens */
+    max-width: 25%; /* Default width */
     background-color: #4CAF50;
     color: #fff;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .profile-sidebar .profile-picture {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     margin-top: 10px;
+    border: 2px solid #fff;
+    object-fit: cover; /* Ensure images are not distorted */
 }
 
 .profile-sidebar .username,
 .profile-sidebar .role {
-    margin: 10px 0;
+    margin: 15px 0;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .profile-sidebar .logout-button {
@@ -81,7 +99,8 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 10px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
 }
 
 .profile-sidebar .logout-button:hover {
@@ -90,26 +109,35 @@ body {
 
 /* Main Content - Project Listings */
 .project-listings {
-    width: 70%;
+    flex: 1 1 100%; /* Full width on smaller screens */
+    max-width: 70%; /* Default width */
     margin-left: 20px;
 }
 
 .project-listings h2 {
-    font-size: 1.8em;
+    font-size: 2em;
     color: #333;
     margin-bottom: 20px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
 }
 
 .project-card {
     background-color: #fff;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project-card h3 {
-    font-size: 1.4em;
+    font-size: 1.5em;
     color: #333;
 }
 
@@ -117,19 +145,23 @@ body {
     font-size: 1em;
     color: #666;
     margin: 10px 0;
+    line-height: 1.4;
 }
 
 .project-card .view-button {
     background-color: #4CAF50;
     color: #fff;
-    padding: 8px 16px;
+    padding: 10px 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .project-card .view-button:hover {
     background-color: #45a049;
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -137,7 +169,24 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 15px 10px;
     margin-top: 20px;
-    border-top: 2px solid #4CAF50;
+    border-top: 3px solid #4CAF50;
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .profile-sidebar {
+        max-width: 100%;
+    }
+
+    .project-listings {
+        max-width: 100%;
+        margin-left: 0;
+    }
 }
